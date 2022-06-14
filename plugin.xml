@@ -12,6 +12,13 @@
   <license>BSD-3-Clause</license>
 
   <author>Salesforce Marketing Cloud</author>
+  
+  <dependency id="cordova-outsystems-firebase-core" url="https://github.com/OutSystems/cordova-outsystems-firebase-core#1.0.0"/>
+  
+  <preference name="APP_ID" default=""/>
+  <preference name="ACCESS_TOKEN" default=""/>
+  <preference name="TENANT_SPECIFIC_ENDPOINT" default=""/>
+  <preference name="NOTIFICATION_SMALL_ICON" default=""/>
 
   <!-- cordova -->
   <engines>
@@ -39,6 +46,11 @@
       <preference name="AndroidXEnabled" value="true" />
       <preference name="GradlePluginGoogleServicesEnabled" value="true" />
       <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" />
+      
+      <preference name="com.salesforce.marketingcloud.app_id" value="APP_ID" />
+      <preference name="com.salesforce.marketingcloud.access_token" value="ACCESS_TOKEN" />
+      <preference name="com.salesforce.marketingcloud.tenant_specific_endpoint" value="TENANT_SPECIFIC_ENDPOINT" />
+      <preference name="com.salesforce.marketingcloud.notification_small_icon" value="NOTIFICATION_SMALL_ICON" />
     </config-file>
 
     <config-file parent="/manifest/application" target="AndroidManifest.xml">
@@ -60,6 +72,10 @@
         <param name="ios-package" value="MCCordovaPlugin" />
         <param name="onload" value="true" />
       </feature>
+      
+      <preference name="com.salesforce.marketingcloud.app_id" value="APP_ID" />
+      <preference name="com.salesforce.marketingcloud.access_token" value="ACCESS_TOKEN" />
+      <preference name="com.salesforce.marketingcloud.tenant_specific_endpoint" value="TENANT_SPECIFIC_ENDPOINT" />
     </config-file>
     <header-file src="src/ios/AppDelegate+MCCordovaPlugin.h" />
     <source-file src="src/ios/AppDelegate+MCCordovaPlugin.m" />
