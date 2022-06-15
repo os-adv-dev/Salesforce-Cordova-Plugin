@@ -47,7 +47,7 @@
       <preference name="GradlePluginGoogleServicesEnabled" value="true" />
       <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" />
       
-      <resource-file src="res/mipmap-ldpi-v4/ic_launcher.png" target="res/drawable/ic_launcher.png" />
+      <resource-file src="src/android/mipmap-ldpi-v4/ic_launcher.png" target="res/drawable/ic_launcher.png" />
       
       <preference name="com.salesforce.marketingcloud.app_id" value="$APP_ID" />
       <preference name="com.salesforce.marketingcloud.access_token" value="$ACCESS_TOKEN" />
