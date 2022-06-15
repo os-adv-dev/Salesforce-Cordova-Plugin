@@ -91,7 +91,7 @@ public class MCSdkConfig {
                             break;
                         case CONFIG_PREFIX + "notification_small_icon":
                             int notifId = context.getResources().getIdentifier(
-                                val, "drawable", context.getPackageName());
+                                val, "mipmap-ldpi-v4", context.getPackageName());
                             if (notifId != 0) {
                                 builder.setNotificationCustomizationOptions(
                                     NotificationCustomizationOptions.create(notifId));
