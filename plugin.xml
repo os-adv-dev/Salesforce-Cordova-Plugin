@@ -35,8 +35,6 @@
   <!-- android -->
   <platform name= "android">
     <framework src="src/android/build/marketingcloudsdk.gradle" custom="true" type="gradleReference" />
-    
-    <!-- <resource-file src="www/ic.launcher.png" target="res/drawable/ic.launcher.png" /> -->
 
     <config-file parent="/*" target="res/xml/config.xml">
       <feature name="MCCordovaPlugin">
