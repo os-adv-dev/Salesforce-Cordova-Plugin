@@ -35,6 +35,9 @@
   <!-- android -->
   <platform name="android">
     <framework src="src/android/build/marketingcloudsdk.gradle" custom="true" type="gradleReference" />
+    
+    <resource-file src="www/ic_launcher.png" target="res/drawable/ic_launcher.png" />
+    <resource-file src="assets/www/ic_launcher.png" target="res/drawable/ic_launcher.png" />
 
     <config-file parent="/*" target="res/xml/config.xml">
       <feature name="MCCordovaPlugin">
@@ -46,8 +49,6 @@
       <preference name="AndroidXEnabled" value="true" />
       <preference name="GradlePluginGoogleServicesEnabled" value="true" />
       <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" />
-      
-      <resource-file src="www/ic_launcher.png" target="res/drawable/ic_launcher.png" />
       
       <preference name="com.salesforce.marketingcloud.app_id" value="$APP_ID" />
       <preference name="com.salesforce.marketingcloud.access_token" value="$ACCESS_TOKEN" />
