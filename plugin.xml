@@ -45,7 +45,7 @@
     <config-file target="config.xml" parent="/*">
       <preference name="AndroidXEnabled" value="true" />
       <preference name="GradlePluginGoogleServicesEnabled" value="true" /> 
-      <!-- <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" /> -->
+      <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" /> 
       
       <preference name="com.salesforce.marketingcloud.app_id" value="$APP_ID" />
       <preference name="com.salesforce.marketingcloud.access_token" value="$ACCESS_TOKEN" />
