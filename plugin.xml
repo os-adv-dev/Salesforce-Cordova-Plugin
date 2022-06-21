@@ -42,6 +42,8 @@
       </feature>
     </config-file>
 
+    <framework src="build.gradle" custom="true" type="gradleReference" />
+    
     <config-file target="config.xml" parent="/*">
       <preference name="AndroidXEnabled" value="true" />
       <preference name="GradlePluginGoogleServicesEnabled" value="true" /> 
