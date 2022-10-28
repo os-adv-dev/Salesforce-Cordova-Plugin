@@ -318,6 +318,10 @@ var MCCordovaPlugin = {
     track: function(eventName, attributesMap) {
         argsCheck.checkArgs('soFF', `${PLUGIN_NAME}.track`, arguments);
         _exec(undefined, undefined, 'track', [eventName, attributesMap]);
+    },
+    
+    onMessage: function(successCallback, errorCallback) {
+        _exec(successCallback, errorCallback, 'onMessage', []);
     }
 
 };
