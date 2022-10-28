@@ -110,9 +110,7 @@ const int LOG_LENGTH = 800;
 
 - (void)sfmc_handleURL:(NSURL *)url type:(NSString *)type {
     if ([type isEqualToString:@"action"] && self.eventsCallbackId != nil) {
-        CDVPluginResult *result = [CDVPluginResult
-               resultWithStatus:CDVCommandStatus_OK
-            messageAsDictionary:@{@"type" : @"urlAction", @"url" : url.absoluteString}];
+        CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:@{@"type" : @"urlAction", @"url" : url.absoluteString}];
         [result setKeepCallbackAsBool:YES];
         [self.commandDelegate sendPluginResult:result callbackId:self.eventsCallbackId];
     }
@@ -199,14 +197,40 @@ const int LOG_LENGTH = 800;
     }
 }
 
+- (void)onMessage:(CDVInvokedUrlCommand *)command {
+    self.eventsCallbackId = command.callbackId;
+}
+
 - (void)sendNotificationEvent:(NSDictionary *)notification {
+    if (self.eventsCallbackId) {
+        CDVPluginResult *pluginResult2 = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:notification];
+        [pluginResult2 setKeepCallbackAsBool:YES];
+        [self.commandDelegate sendPluginResult:pluginResult2 callbackId:self.eventsCallbackId];
+    }
+    
     if (self.notificationOpenedSubscribed && self.eventsCallbackId != nil) {
-        CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-                                                messageAsDictionary:notification];
+        CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:notification];
         [result setKeepCallbackAsBool:YES];
         [self.commandDelegate sendPluginResult:result callbackId:self.eventsCallbackId];
     } else {
-        self.cachedNotification = notification;
+        NSLog(@"batatas sendNotificationEvent");
+        @try{  
+            self.cachedNotification = notification;
+
+            NSError * err;
+            NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:notification options:0 error:&err];
+            NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"batatas sendNotificationEvent 1");
+            
+            CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:myString];
+            [pluginResult setKeepCallbackAsBool:YES];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:self.eventsCallbackId];   
+            }@catch (NSException* exception) {
+              NSLog(@"batatas sendNotificationEvent 2 error");
+              CDVPluginResult* pluginResultErr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[exception reason]];  
+              [self.commandDelegate sendPluginResult:pluginResultErr callbackId:self.eventsCallbackId];
+        }
     }
 }
 
