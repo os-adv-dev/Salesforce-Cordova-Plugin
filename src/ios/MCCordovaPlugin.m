@@ -218,15 +218,12 @@ const int LOG_LENGTH = 800;
         [result setKeepCallbackAsBool:YES];
         [self.commandDelegate sendPluginResult:result callbackId:self.eventsCallbackId];
     } else {
-        NSLog(@"batatas sendNotificationEvent");
         @try{  
             self.cachedNotification = notification;
 
             NSError * err;
             NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:notification options:0 error:&err];
             NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
-            
-            NSLog(@"batatas sendNotificationEvent 1");
             
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:myString];
             [pluginResult setKeepCallbackAsBool:YES];
