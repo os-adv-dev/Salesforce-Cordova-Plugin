@@ -116,11 +116,6 @@ const int LOG_LENGTH = 800;
     }
 }
 
-- (void)requestPermission {
-    [self requestPushPermission];
-    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"] callbackId:command.callbackId];
-}
-
 - (void)pluginInitialize {
     if ([MarketingCloudSDK sharedInstance] == nil) {
         // failed to access the MarketingCloudSDK
