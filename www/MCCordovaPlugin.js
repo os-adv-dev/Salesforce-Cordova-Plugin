@@ -322,7 +322,13 @@ var MCCordovaPlugin = {
     
     onMessage: function(successCallback, errorCallback) {
         _exec(successCallback, errorCallback, 'onMessage', []);
-    }
+    },
+    
+    //mlrosa - New action to make requestPermission removed from initialize of this plugin
+    requestPermission: function(successCallback, errorCallback) {
+        argsCheck.checkArgs('fF', `${PLUGIN_NAME}.requestPermission`, arguments);
+        _exec(successCallback, errorCallback, 'requestPermission');
+    },
 
 };
 
