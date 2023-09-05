@@ -36,6 +36,8 @@
 - (void)disableVerboseLogging:(CDVInvokedUrlCommand *)command;
 - (void)logSdkState:(CDVInvokedUrlCommand *)command;
 
+- (void)requestInitialize:(CDVInvokedUrlCommand *)command;
+
 - (void)getSystemToken:(CDVInvokedUrlCommand *)command;
 - (void)isPushEnabled:(CDVInvokedUrlCommand *)command;
 - (void)enablePush:(CDVInvokedUrlCommand *)command;
