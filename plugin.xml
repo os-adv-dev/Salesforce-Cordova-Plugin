@@ -13,7 +13,7 @@
 
   <author>Salesforce Marketing Cloud</author>
   
-  <dependency id="cordova-outsystems-firebase-core" url="https://github.com/OutSystems/cordova-outsystems-firebase-core#1.0.0"/> 
+  <dependency id="cordova-outsystems-firebase-core" url="https://github.com/OutSystems/cordova-outsystems-firebase-core#2.0.0"/> 
   
   <preference name="APP_ID" default=""/>
   <preference name="ACCESS_TOKEN" default=""/>
